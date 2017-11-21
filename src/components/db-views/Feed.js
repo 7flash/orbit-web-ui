@@ -49,8 +49,15 @@ export default class EventLog extends Component {
         {
           this.entries.map((entry, idx) => (
             <div key={idx}>
-              <p>{ entry.payload.value }</p>
-              <Button onClick={() => this.handleRemove(entry.hash)} icon="delete">Remove</Button>
+              <div>
+                { entry.payload.value }
+                <Button
+                  onClick={() => this.handleRemove(entry.hash)}
+                  shape="circle"
+                  icon="delete"
+                  type="danger"
+                />
+              </div>
             </div>
           ))
         }

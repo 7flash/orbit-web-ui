@@ -7,6 +7,7 @@ import EventLog from './components/db-views/EventLog'
 import Feed from './components/db-views/Feed'
 
 import './App.css'
+import DatabaseInfo from './components/DatabaseInfo'
 
 class App extends Component {
   constructor(props) {
@@ -48,7 +49,11 @@ class App extends Component {
     if (!inited) return <Spin />
     return (
       <div className="App">
-        <DatabaseManager onCreate={this.handleCreateDb} db={db}/>
+        {
+          db ?
+            <DatabaseInfo db={db} /> :
+            <DatabaseManager onCreate={this.handleCreateDb} />
+        }
         { this.renderDb() }
       </div>
     )
